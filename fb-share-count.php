@@ -1,17 +1,17 @@
 <?php
 /**
  * Plugin Name:     Fb Share Count
- * Plugin URI:      PLUGIN SITE HERE
- * Description:     PLUGIN DESCRIPTION HERE
- * Author:          YOUR NAME HERE
- * Author URI:      YOUR SITE HERE
+ * Plugin URI:      https://www.github.com/yousan/fb-share-count
+ * Description:     Facebookのシェア数を取得するタグを追加します。
+ * Author:          Yousan_O
+ * Author URI:      http://www.l2tp.org
  * Text Domain:     fb-share-count
  * Domain Path:     /languages
  * Version:         0.1.0
  *
  * @package         Fb_Share_Count
  *
- * @link https://github.com/inpsyde/backwpup
+ * @link https://github.com/inpsyde/backwpup thank you.
  */
 
 if ( ! class_exists( 'FB_Share_Count' ) ) {
@@ -20,7 +20,7 @@ if ( ! class_exists( 'FB_Share_Count' ) ) {
 		add_action( 'plugins_loaded', array( 'FB_Share_Count', 'get_instance' ), 11 );
 	}
 
-	final class BackWPup {
+	final class FB_Share_Count {
 
 		private static $instance = NULL;
 		private static $plugin_data = array();
@@ -35,6 +35,7 @@ if ( ! class_exists( 'FB_Share_Count' ) ) {
 			}
 			//auto loader
 			spl_autoload_register( array( $this, 'autoloader' ) );
+			require_once('includes/functions.php'); // こちらは手動で読み込み
 
 			//register_deactivation_hook( __FILE__, array( 'BackWPup_Install', 'deactivate' ) );
 			//Admin bar
@@ -42,9 +43,12 @@ if ( ! class_exists( 'FB_Share_Count' ) ) {
 			//add_action( 'init', array( 'BackWPup_Adminbar', 'get_instance' ) );
 			//}
 			//only in backend
-			if ( is_admin() && class_exists( 'BackWPup_Admin' ) ) {
+			//var_dump( class_exists('FSC_Option')); exit;
+			if ( is_admin() ) {
+				$FSC_Option = new FSC_Option();
 				//BackWPup_Admin::get_instance();
 			}
+
 		}
 
 
@@ -70,15 +74,10 @@ if ( ! class_exists( 'FB_Share_Count' ) ) {
 		 * @param string $class Class to load from file
 		 */
 		private function autoloader( $class ) {
-
 			//BackWPup classes auto load
 			if ( strstr( strtolower( $class ), 'fsc_' ) ) {
 				$dir = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
-				$class_file_name = 'class-' . str_replace( array( 'backwpup_', '_' ), array( '', '-' ), strtolower( $class ) ) . '.php';
-				if ( strstr( strtolower( $class ), 'backwpup_pro' ) ) {
-					$dir .=  'pro' . DIRECTORY_SEPARATOR;
-					$class_file_name = str_replace( 'pro-','', $class_file_name );
-				}
+				$class_file_name = 'class-' . str_replace( array( 'fsc_', '_' ), array( '', '-' ), strtolower( $class ) ) . '.php';
 				if ( file_exists( $dir . $class_file_name ) )
 					require $dir . $class_file_name;
 			}
