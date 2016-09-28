@@ -22,7 +22,7 @@ if ( ! class_exists( 'FB_Share_Count' ) ) {
 
 	final class FB_Share_Count {
 
-		private static $instance = NULL;
+		private static $instance = null;
 		private static $plugin_data = array();
 		private static $autoload = array();
 
@@ -35,7 +35,7 @@ if ( ! class_exists( 'FB_Share_Count' ) ) {
 			}
 			//auto loader
 			spl_autoload_register( array( $this, 'autoloader' ) );
-			require_once('includes/functions.php'); // こちらは手動で読み込み
+			require_once( 'includes/functions.php' ); // こちらは手動で読み込み
 
 			//register_deactivation_hook( __FILE__, array( 'BackWPup_Install', 'deactivate' ) );
 			//Admin bar
@@ -59,14 +59,30 @@ if ( ! class_exists( 'FB_Share_Count' ) ) {
 		 */
 		public static function get_instance() {
 
-			if (NULL === self::$instance) {
+			if ( null === self::$instance ) {
 				self::$instance = new self;
 			}
+
 			return self::$instance;
 		}
 
+		/**
+		 * Load Plugin Translation
+		 *
+		 * @return bool Text domain loaded
+		 */
+		public static function load_text_domain() {
 
-		private function __clone() {}
+			if ( is_textdomain_loaded( 'fsc' ) ) {
+				return true;
+			}
+
+			return load_plugin_textdomain( 'fsc', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		}
+
+
+		private function __clone() {
+		}
 
 		/**
 		 * include not existing classes automatically
@@ -77,20 +93,25 @@ if ( ! class_exists( 'FB_Share_Count' ) ) {
 			//BackWPup classes auto load
 			if ( strstr( strtolower( $class ), 'fsc_' ) ) {
 				$dir = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
-				$class_file_name = 'class-' . str_replace( array( 'fsc_', '_' ), array( '', '-' ), strtolower( $class ) ) . '.php';
-				if ( file_exists( $dir . $class_file_name ) )
+				$class_file_name = 'class-' . str_replace( array( 'fsc_', '_' ), array(
+						'',
+						'-'
+					), strtolower( $class ) ) . '.php';
+				if ( file_exists( $dir . $class_file_name ) ) {
 					require $dir . $class_file_name;
+				}
 			}
 
 			// namespaced PSR-0
 			if ( ! empty( self::$autoload ) ) {
 				$pos = strrpos( $class, '\\' );
-				if ( $pos !== FALSE ) {
+				if ( $pos !== false ) {
 					$class_path = str_replace( '\\', DIRECTORY_SEPARATOR, substr( $class, 0, $pos ) ) . DIRECTORY_SEPARATOR . str_replace( '_', DIRECTORY_SEPARATOR, substr( $class, $pos + 1 ) ) . '.php';
 					foreach ( self::$autoload as $prefix => $dir ) {
 						if ( $class === strstr( $class, $prefix ) ) {
-							if ( file_exists( $dir . DIRECTORY_SEPARATOR . $class_path ) )
+							if ( file_exists( $dir . DIRECTORY_SEPARATOR . $class_path ) ) {
 								require $dir . DIRECTORY_SEPARATOR . $class_path;
+							}
 						}
 					}
 				} // Single class file
