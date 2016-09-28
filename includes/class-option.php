@@ -52,8 +52,7 @@ class FSC_Option {
 		if ( isset( $options[ $varname ] ) ) {
 			return $options[ $varname ];
 		} else {
-			$defaults = self::getDefaults();
-
+			$defaults = self::get_defaults();
 			return $defaults[ $varname ];
 		}
 	}
