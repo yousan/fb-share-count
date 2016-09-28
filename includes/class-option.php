@@ -13,12 +13,13 @@ class FSC_Option {
 	private $options;
 
 	const OPTION_NAME = 'fsc_options';
+	const DOMAIN = 'fsc';
 
 	/**
 	 * Start up
 	 */
 	public function __construct() {
-
+		FB_Share_Count::load_text_domain();
 		add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'page_init' ) );
 	}
@@ -52,8 +53,7 @@ class FSC_Option {
 		if ( isset( $options[ $varname ] ) ) {
 			return $options[ $varname ];
 		} else {
-			$defaults = self::getDefaults();
-
+			$defaults = self::get_defaults();
 			return $defaults[ $varname ];
 		}
 	}
@@ -68,7 +68,7 @@ class FSC_Option {
 		<div class="wrap">
 			<?php //screen_icon();
 			?>
-			<h2><?php _e( 'FB Share Count', 'fsc' ) ?></h2>
+			<h2><?php _e( 'FB Share Count', self::DOMAIN ) ?></h2>
 			<form method="post" action="options.php">
 				<?php
 				// This prints out all hidden setting fields
@@ -93,14 +93,14 @@ class FSC_Option {
 
 		add_settings_section(
 			'setting_fsc', // ID
-			__( 'FB Share Count Custom Settings', 'fsc' ), // Title
+			__( 'FB Share Count Custom Settings', self::DOMAIN ), // Title
 			array( $this, 'option_description_callback' ), // Callback
 			'fsc-setting-admin' // Page
 		);
 
 		add_settings_field(
 			'app_id', // ID
-			__( 'App ID', 'fsc' ), // Title
+			__( 'App ID', self::DOMAIN ), // Title
 			array( $this, 'app_id_callback' ), // Callback
 			'fsc-setting-admin', // Page
 			'setting_fsc' // Section
@@ -108,11 +108,12 @@ class FSC_Option {
 
 		add_settings_field(
 			'secret', // ID
-			__( 'App Secret', 'fsc' ), // Title
+			__( 'App Secret', self::DOMAIN ), // Title
 			array( $this, 'app_secret_callback' ), // Callback
 			'fsc-setting-admin', // Page
 			'setting_fsc' // Section
 		);
+
 
 //		register_setting(
 //			'apft_option_group', // Option group
@@ -153,11 +154,25 @@ class FSC_Option {
 
 	}
 
+
 	/**
 	 * 開発者用ページに行ってね、と促す
 	 */
 	public function option_description_callback() {
-		_e( 'App ID and Secret can be got at developers page. see https://developers.facebook.com/apps ', 'fsc' );
+		?>
+		<p>
+			<?php _e( 'App ID and Secret can be got at developers page. see <a href="https://developers.facebook.com/apps">https://developers.facebook.com/apps</a> ', self::DOMAIN ); ?>
+		</p>
+		<p>
+			<?php _e('Insert shortcode [fb-share-count].', self::DOMAIN); ?>
+		</p>
+		<p>
+			<?php _e('At a template file, call the shortcode such as:', self::DOMAIN); ?>
+		</p>
+		<pre>
+			<?php echo htmlentities('<div class=“fb_icon”><?php do_shortcode(‘[fb-share-count]’); ?></div>'); ?>
+		</pre>
+		<?php
 	}
 
 	/**
