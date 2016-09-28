@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: fb-share-count\n"
+"POT-Creation-Date: 2016-09-28 11:38+0900\n"
+"PO-Revision-Date: 2016-09-28 11:39+0900\n"
+"Last-Translator: Yousan <yousan@l2tp.org>\n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-option.php:71
+msgid "FB Share Count"
+msgstr "FB Share Count"
+
+#: includes/class-option.php:96
+msgid "FB Share Count Custom Settings"
+msgstr "FB Share Count カスタム設定"
+
+#: includes/class-option.php:103
+msgid "App ID"
+msgstr ""
+
+#: includes/class-option.php:111
+msgid "App Secret"
+msgstr ""
+
+#: includes/class-option.php:164
+msgid ""
+"App ID and Secret can be got at developers page. see <a href=\"https://"
+"developers.facebook.com/apps\">https://developers.facebook.com/apps</a> "
+msgstr ""
+"アプリIDとシークレットはFBの開発者ページ ( <a href=\"https://developers."
+"facebook.com/apps\">https://developers.facebook.com/apps</a> ) で確認するこ"
+"とができます。"
+
+#: includes/class-option.php:167
+msgid "Insert shortcode [fb-share-count]."
+msgstr ""
+"カウント数を表示したい箇所に [fb-share-count] のショートコードを書いてくだ"
+"さい。"
+
+#: includes/class-option.php:170
+msgid "At a template file, call the shortcode such as:"
+msgstr ""
+"テンプレートファイル中で呼び出す場合には次のようにしてショートコードを呼び"
+"出してください。"
+
+#: includes/class-option.php:192
+msgid "Only digits."
+msgstr "数字のみです。"
+
+#: includes/class-option.php:213
+msgid "Numbers and alphabets."
+msgstr "数字とアルファベットで構成されます。"
+
+#~ msgid ""
+#~ "At a template file, call the shortcode such as:<pre><div "
+#~ "class=“fb_icon”><?php do_shortcode(‘[fb-share-count]’); ?></div></pre>"
+#~ msgstr ""
+#~ "テンプレート中で表示したい場合には\n"
+#~ "<pre><div class=“fb_icon”><?php do_shortcode(‘[fb-share-count]’); ?></"
+#~ "div></pre>\n"
+#~ "のように書くと数が表示されます。"
+
+#~ msgid "Insert shortcode [fb-share-count]"
+#~ msgstr ""
+#~ "カウント数を表示したい箇所に [fb-share-count] のショートコードを書いてく"
+#~ "ださい。\n"
+#~ "テンプレート中で表示したい場合には\n"
+#~ "<div class=“fb_icon”><?php do_shortcode(‘[fb-share-count]’); ?></div>\n"
+#~ "のように書くと数が表示されます。"
+
+#~ msgid ""
+#~ "App ID and Secret can be got at developers page. see https://developers."
+#~ "facebook.com/apps "
+#~ msgstr "App IDとシークレットは次のページで確認することが出来ます。"
