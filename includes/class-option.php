@@ -169,9 +169,9 @@ class FSC_Option {
 		<p>
 			<?php _e('At a template file, call the shortcode such as:', self::DOMAIN); ?>
 		</p>
-		<pre>
+		<code>
 			<?php echo htmlentities('<div class=“fb_icon”><?php do_shortcode(‘[fb-share-count]’); ?></div>'); ?>
-		</pre>
+		</code>
 		<?php
 	}
 
