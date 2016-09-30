@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fb-share-count\n"
 "POT-Creation-Date: 2016-09-28 11:38+0900\n"
-"PO-Revision-Date: 2016-09-28 11:39+0900\n"
+"PO-Revision-Date: 2016-09-30 09:09+0900\n"
 "Last-Translator: Yousan <yousan@l2tp.org>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -26,11 +26,11 @@ msgstr "FB Share Count カスタム設定"
 
 #: includes/class-option.php:103
 msgid "App ID"
-msgstr ""
+msgstr "アプリID"
 
 #: includes/class-option.php:111
 msgid "App Secret"
-msgstr ""
+msgstr "シークレット"
 
 #: includes/class-option.php:164
 msgid ""
@@ -59,7 +59,7 @@ msgstr "数字のみです。"
 
 #: includes/class-option.php:213
 msgid "Numbers and alphabets."
-msgstr "数字とアルファベットで構成されます。"
+msgstr "数字とアルファベットです。"
 
 #~ msgid ""
 #~ "At a template file, call the shortcode such as:<pre><div "

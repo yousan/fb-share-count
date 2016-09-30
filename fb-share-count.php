@@ -11,9 +11,9 @@
  *
  * @package         Fb_Share_Count
  *
- * @link https://github.com/inpsyde/backwpup thank you.
  */
 
+// Thanks @link https://github.com/inpsyde/backwpup
 if ( ! class_exists( 'FB_Share_Count' ) ) {
 	//Start Plugin
 	if ( function_exists( 'add_filter' ) ) {

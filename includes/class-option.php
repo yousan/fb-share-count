@@ -189,7 +189,7 @@ class FSC_Option {
 			<label for="fsc_app_id" style="width: 100%;">
 				<input type="text" id="fsc_app_id" name="fsc_options[app_id]" value="<?php echo $app_id; ?>"
 				       style="width: 70%;"/>
-				<?php _e( 'Only digits.' ); ?>
+				<?php _e( 'Only digits.', self::DOMAIN ); ?>
 			</label>
 		</p>
 		<?php
@@ -210,7 +210,7 @@ class FSC_Option {
 			<label for="fsc_app_secret" style="width: 100%;">
 				<input type="text" id="fsc_app_secret" name="fsc_options[app_secret]" value="<?php echo $app_secret; ?>"
 				       style="width: 70%;"/>
-				<?php _e( 'Numbers and alphabets.' ); ?>
+				<?php _e( 'Numbers and alphabets.', self::DOMAIN ); ?>
 			</label>
 		</p>
 		<?php
