@@ -1,5 +1,5 @@
 === Fb Share Count ===
-Contributors: yousan
+Contributors: hogetan
 Donate link:
 Tags: admin, develop
 Requires at least: 4.5
