@@ -50,5 +50,3 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 * First release
 
 == Upgrade Notice ==
-
-
