@@ -4,14 +4,11 @@ Donate link:
 Tags: admin, develop
 Requires at least: 4.5
 Tested up to: 4.6.1
-Stable tag: 0.1.1
+Stable tag: 0.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin adds a function that shows Facebook share number.
-This plugins uses v2.7 Facebook API.
-
-
+A plugin adds a function that shows Facebook share number with v2.7 Facebook API.
 
 == Description ==
 
@@ -42,6 +39,12 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 0.1.5 =
+* Fixed bugs
+
+= 0.1.4 =
+* Fixed contributor
 
 = 0.1.0 =
 * First release
