@@ -7,7 +7,7 @@
  * Author URI:      http://www.l2tp.org
  * Text Domain:     fb-share-count
  * Domain Path:     /languages
- * Version:         0.1.1
+ * Version:         0.1.5
  *
  * @package         Fb_Share_Count
  *

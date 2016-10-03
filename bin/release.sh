@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-VERSION="0.1.4"
+VERSION="0.1.5"
 SVNDIR=/Users/yousan/svn/fb-share-count
 GITDIR=/Users/yousan/git/fb-share-count
 FILES=("fb-share-count.php" "languages" "readme.txt" "includes")
