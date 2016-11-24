@@ -1,0 +1,21 @@
+{
+  "name": "yousan/fb-share-count",
+  "description": "Add a shortcode that shows FaceBook share count.",
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^2.7",
+    "wp-coding-standards/wpcs": "^0.10.0",
+    "phpmd/phpmd": "^2.5"
+  },
+  "scripts" :{
+    "post-install-cmd": [
+      "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
+    ],
+    "post-update-cmd": [
+      "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
+    ],
+    "test": [
+      "php vendor/bin/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php",
+      "phpmd template-parts,inc,404.php,archive.php,comments.php,footer.php,functions.php,header.php,index.php,page.php,search.php,sidebar.php,single.php text phpmd.ruleset.xml"
+    ]
+  }
+}

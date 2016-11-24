@@ -1,5 +1,6 @@
 <?php
 /**
+ * PHP version 5
  * Plugin Name:     Fb Share Count
  * Plugin URI:      https://www.github.com/yousan/fb-share-count
  * Description:     Facebookのシェア数を取得するタグを追加します。
@@ -9,17 +10,23 @@
  * Domain Path:     /languages
  * Version:         0.1.5
  *
- * @package         Fb_Share_Count
- *
+ * @category Testing
+ * @package  Fb_Share_Count
+ * @author   Yousan_O <yousan@l2tp.org>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://www.github.com/yousan/fb-share-count
  */
 
-// Thanks @link https://github.com/inpsyde/backwpup
+// @link https://github.com/inpsyde/backwpup Thanks!
 if ( ! class_exists( 'FB_Share_Count' ) ) {
-	//Start Plugin
+	// Start Plugin from here.
 	if ( function_exists( 'add_filter' ) ) {
 		add_action( 'plugins_loaded', array( 'FB_Share_Count', 'get_instance' ), 11 );
 	}
 
+	/**
+	 * Class FB_Share_Count
+	 */
 	final class FB_Share_Count {
 
 		private static $instance = null;
@@ -92,7 +99,7 @@ if ( ! class_exists( 'FB_Share_Count' ) ) {
 		private function autoloader( $class ) {
 			//BackWPup classes auto load
 			if ( strstr( strtolower( $class ), 'fsc_' ) ) {
-				$dir = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
+				$dir             = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
 				$class_file_name = 'class-' . str_replace( array( 'fsc_', '_' ), array(
 						'',
 						'-'
